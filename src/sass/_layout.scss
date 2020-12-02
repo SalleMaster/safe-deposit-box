@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap');
+
+// font-family: 'Roboto Mono', monospace;
+
+// Colors
+$background: #434343;
+$panel-body: #7d7d7f;
+$button: #63636e;
+$button-text: #f3f3f3;
+$screen-text: #434343;
+$screen-backlight-off: #47b2b2;
+$screen-backlight-on: #7fffff;
+
+body {
+  background: $background;
+  font-family: 'Roboto Mono', monospace;
+}
