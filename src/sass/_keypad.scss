@@ -1,0 +1,26 @@
+// Keypad
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  .keypad__btn {
+    background: $button;
+    color: $button-text;
+    box-shadow: 0px 0px 3px black;
+    font-size: 2.5rem;
+    font-weight: 500;
+    padding: 0.5rem 1.3rem;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+      background: darken($color: $button, $amount: 10);
+    }
+    &:active {
+      background: darken($color: $button, $amount: 20);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+// Safe
+.safe {
+  background: $panel-body;
+  margin-top: 10vh;
+  padding: 1rem 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 5px black;
+
+  .serial-number {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: $screen-text;
+    text-align: right;
+  }
+}

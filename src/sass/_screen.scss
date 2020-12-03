@@ -1,0 +1,22 @@
+// Backlit Screen
+.screen {
+  background: $screen-backlight-off;
+  color: $screen-text;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+
+  &.screen--on {
+    background: $screen-backlight-on;
+  }
+
+  .screen__status {
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .screen__message {
+    font-size: 2rem;
+    text-align: right;
+  }
+}

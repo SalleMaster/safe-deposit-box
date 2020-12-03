@@ -21,4 +21,7 @@ $screen-backlight-on: #7fffff;
 body {
   background: $background;
   font-family: 'Roboto Mono', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
