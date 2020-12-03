@@ -1,6 +1,6 @@
 import './App.css';
 
-// Sreens
+// Components
 import SafeDepositBox from './components/SafeDepositBox';
 
 const App = () => {
