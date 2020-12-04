@@ -9,7 +9,7 @@ const SafeDepositBox = () => {
   const [password, setPassword] = useState([]);
 
   const safe = useSelector((state) => state.safe);
-  const { serialNumber, locked, status } = safe;
+  const { serialNumber, locked, status, serviceMode, keypadLocked } = safe;
 
   return (
     <div className='safe'>
@@ -17,6 +17,8 @@ const SafeDepositBox = () => {
       <NumKeypad
         locked={locked}
         password={password}
+        serviceMode={serviceMode}
+        keypadLocked={keypadLocked}
         setPassword={setPassword}
       />
       <div className='serial-number'>S/N: {serialNumber}</div>
