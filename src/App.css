@@ -34,20 +34,26 @@ body {
   padding: 0.5rem;
   border-radius: 0.5rem;
   margin-bottom: 1.5rem;
+  min-width: 285px;
 }
 
 .screen.screen--on {
   background: #7fffff;
 }
 
-.screen .screen__status {
+.screen .screen__state {
   font-size: 0.8rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .screen .screen__message {
   font-size: 2rem;
   text-align: right;
+}
+
+.screen .screen__message:after {
+  content: '.';
+  visibility: hidden;
 }
 
 .keypad {

@@ -24,7 +24,7 @@ export const safeReducer = (state = initialState, action) => {
       return {
         ...state,
         locked: true,
-        status: 'Ready',
+        status: '',
         password: action.payload,
       };
     case SAFE_SET_LOCK_FAIL:
@@ -44,12 +44,12 @@ export const safeReducer = (state = initialState, action) => {
     case SAFE_UNLOCK_FAIL:
       return {
         ...state,
-        status: 'Error',
+        status: action.payload,
       };
     case SAFE_UNLOCK_RESET:
       return {
         ...state,
-        status: 'Ready',
+        status: '',
       };
     default:
       return state;

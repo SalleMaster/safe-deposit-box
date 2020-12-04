@@ -5,18 +5,28 @@
   padding: 0.5rem;
   border-radius: 0.5rem;
   margin-bottom: 1.5rem;
+  min-width: 285px;
 
+  // Turn on screen
   &.screen--on {
     background: $screen-backlight-on;
   }
 
-  .screen__status {
+  // Screen state
+  .screen__state {
     font-size: 0.8rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 
+  // Screen message
   .screen__message {
     font-size: 2rem;
     text-align: right;
+
+    // Take height when there is no text
+    &:after {
+      content: '.';
+      visibility: hidden;
+    }
   }
 }
