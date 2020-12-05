@@ -5,7 +5,8 @@
   padding: 0.5rem;
   border-radius: 0.5rem;
   margin-bottom: 1.5rem;
-  min-width: 285px;
+  width: 285px;
+  overflow: hidden;
 
   // Turn on screen
   &.screen--on {
@@ -22,6 +23,7 @@
   .screen__message {
     font-size: 2rem;
     text-align: right;
+    // word-wrap: break-word;
 
     // Take height when there is no text
     &:after {

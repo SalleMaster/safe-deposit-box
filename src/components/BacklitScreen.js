@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const BacklitScreen = ({ password, locked, status }) => {
   const [idle, setIdle] = useState(false);
+  const [shortPassword, setShortPassword] = useState('');
 
   useEffect(() => {
     setIdle(false);
@@ -10,6 +11,10 @@ const BacklitScreen = ({ password, locked, status }) => {
       setIdle(true);
     }, 5000);
 
+    if (password.length > 11) {
+      setShortPassword(`...${password.slice(-11)}`);
+    }
+
     return () => clearTimeout(timeout);
   }, [password, locked, status]);
 
@@ -17,7 +22,11 @@ const BacklitScreen = ({ password, locked, status }) => {
     <div className={idle ? 'screen' : 'screen screen--on'}>
       <div className='screen__state'>{locked ? 'Locked' : 'Unlocked'}</div>
       <div className='screen__message'>
-        {password.length > 0 ? password : status}
+        {password.length > 11
+          ? shortPassword
+          : password.length > 0
+          ? password
+          : status}
       </div>
     </div>
   );

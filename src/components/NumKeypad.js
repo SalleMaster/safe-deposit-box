@@ -16,29 +16,55 @@ const NumKeypad = ({
   serviceMode,
   keypadLocked,
 }) => {
-  const keys = [7, 8, 9, 4, 5, 6, 1, 2, 3, '*', 0, 'L'];
+  const keys = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '*', '0', 'L'];
 
   const dispatch = useDispatch();
 
-  // Button Click handler
-  const onClickHandler = (e) => {
+  const enterKey = (key) => {
     if (keypadLocked) {
       return;
-    } else if (e.target.value === 'L' && !locked) {
+    } else if (serviceMode) {
+      setPassword([...password, key].join(''));
+    } else if (key === 'L' && !locked) {
       dispatch(setLock(password));
       setPassword([]);
     } else {
-      if (e.target.value === 'L') {
+      if (key === 'L') {
         return;
       }
-      setPassword([...password, e.target.value].join(''));
+      setPassword([...password, key].join(''));
     }
   };
 
-  useEffect(() => {
-    if (password.length > 6) {
-      setPassword(password.slice(password.length - 6, password.length));
+  // Button Click handler
+  const onClickHandler = (e) => {
+    enterKey(e.target.value);
+  };
+
+  const keyboardCallback = (e) => {
+    let key = e.key;
+    if (key === 'l') {
+      key = 'L';
     }
+    if (keys.includes(key)) {
+      enterKey(key);
+    }
+  };
+
+  // Listen for keyboard input
+  useEffect(() => {
+    document.addEventListener('keydown', keyboardCallback);
+
+    return () => document.removeEventListener('keydown', keyboardCallback);
+  });
+
+  useEffect(() => {
+    if (!serviceMode) {
+      if (password.length > 6) {
+        setPassword(password.slice(password.length - 6, password.length));
+      }
+    }
+
     const timeout = setTimeout(() => {
       if (locked && password === '000000') {
         setPassword([]);
@@ -54,20 +80,6 @@ const NumKeypad = ({
 
     return () => clearTimeout(timeout);
   }, [password, locked, dispatch, setPassword, serviceMode]);
-
-  // useEffect(() => {
-  //   if (password.length > 6) {
-  //     setPassword(password.slice(password.length - 6, password.length));
-  //   }
-  //   const timeout = setTimeout(() => {
-  //     if (password.length !== 0 && locked) {
-  //       setPassword([]);
-  //       dispatch(unlock(password));
-  //     }
-  //   }, 1200);
-
-  //   return () => clearTimeout(timeout);
-  // }, [password, locked, dispatch, setPassword]);
 
   return (
     <div className='keypad'>
