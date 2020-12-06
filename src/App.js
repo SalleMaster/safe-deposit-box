@@ -1,10 +1,10 @@
 import './App.css';
 
 // Components
-import SafeDepositBox from './components/SafeDepositBox';
+import Safe from './components/safe/Safe';
 
 const App = () => {
-  return <SafeDepositBox />;
+  return <Safe />;
 };
 
 export default App;

@@ -1,4 +1,4 @@
 @import 'layout';
-@import 'safe';
-@import 'screen';
-@import 'keypad';
+@import '../components/safe/safe';
+@import '../components/safe/screen/screen';
+@import '../components/safe/keypad/keypad';
