@@ -17,7 +17,7 @@ import {
 } from '../constants/safeConstants';
 
 // Set lock action
-export const setLock = (password) => async (dispatch) => {
+export const setLock = (password) => (dispatch) => {
   try {
     dispatch({ type: SAFE_KEYPAD_LOCKED });
     dispatch({ type: SAFE_SET_LOCK_REQUEST });
@@ -45,7 +45,7 @@ export const setLock = (password) => async (dispatch) => {
 };
 
 // Unlock safe action
-export const unlock = (password) => async (dispatch, getState) => {
+export const unlock = (password) => (dispatch, getState) => {
   try {
     dispatch({ type: SAFE_KEYPAD_LOCKED });
     dispatch({ type: SAFE_UNLOCK_REQUEST });
@@ -75,7 +75,7 @@ export const unlock = (password) => async (dispatch, getState) => {
 };
 
 // Service mode action
-export const enableServiceMode = () => async (dispatch) => {
+export const enableServiceMode = () => (dispatch) => {
   dispatch({ type: SAFE_SERVICE_MODE_ENABLE });
 };
 
